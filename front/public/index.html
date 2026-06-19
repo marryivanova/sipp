@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="description" content="SIPP-PROM — производство полиуретановых, эпоксидных и акрилатных материалов. Сертифицировано по ISO 9001:2015. Доставка по РФ и СНГ.">
+    <meta name="theme-color" content="#2B8C6C">
+    <title>SIPP-PROM | Профессиональные полимерные материалы</title>
+
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+
+    <!-- Favicon -->
+     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23E6F7F0'/%3E%3Cpath d='M24 10C20 10 16 14 16 18C16 24 20 28 24 34C28 28 32 24 32 18C32 14 28 10 24 10Z' fill='%232B8C6C'/%3E%3Ccircle cx='24' cy='18' r='4' fill='%23F8FAF9'/%3E%3C/svg%3E">
+</head>
+<body>
+
+    <!-- ===== АНИМИРОВАННЫЙ ФОН ===== -->
+    <div class="animated-bg" aria-hidden="true"></div>
+    <div class="bg-ornament bg-ornament-1" aria-hidden="true"></div>
+    <div class="bg-ornament bg-ornament-2" aria-hidden="true"></div>
+
+    <div class="container" id="main-content">
+
+        <!-- ===== HEADER ===== -->
+        <header class="header" role="banner">
+            <a href="#" class="logo" aria-label="SIPP-PROM — на главную">
+                <img src="static/logo.jpg" alt="SIPP-PROM логотип" style="height: 80px; width: auto; margin-right: 12px;">
+                <div>
+                    <div class="logo-text">SIPP-PROM</div>
+                    <div class="logo-sub">Полиуретановые и эпоксидные системы</div>
+                </div>
+            </a>
+
+            <button class="burger-btn" id="burgerBtn" aria-label="Открыть меню" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="nav-links" id="navLinks" role="navigation" aria-label="Основное меню">
+                <a href="#about">О нас</a>
+                <a href="#production">Производство</a>
+                <a href="#map">Как найти</a>
+                <a href="#contacts">Контакты</a>
+                <a href="https://sipp.pro/" target="_blank" rel="noopener noreferrer" class="shop-link">
+                    <i class="fas fa-store" aria-hidden="true" style="margin-right:8px;"></i> Интернет-магазин
+                </a>
+            </nav>
+        </header>
+
+        <!-- ===== ДЕКОРАТИВНАЯ ВОЛНА ===== -->
+        <div class="divider-wave" aria-hidden="true">
+            <svg viewBox="0 0 200 30" role="img">
+                <path d="M0 15 Q25 0 50 15 T100 15 T150 15 T200 15" stroke="#C9A84C" stroke-width="2" fill="none"/>
+                <path d="M0 20 Q25 5 50 20 T100 20 T150 20 T200 20" stroke="#5FB89A" stroke-width="1.5" fill="none" opacity="0.5"/>
+                <path d="M0 10 Q25 -5 50 10 T100 10 T150 10 T200 10" stroke="#C9A84C" stroke-width="1" fill="none" opacity="0.3"/>
+            </svg>
+        </div>
+
+        <!-- ===== HERO + ФОРМА ===== -->
+        <section class="hero-form-grid" aria-label="Презентация компании и форма заявки">
+            <div class="left-cta">
+                <div class="badge"><i class="fas fa-crown"></i> Премиум качество</div>
+                <h2>Профессиональные <span class="highlight">полимерные</span><br> материалы</h2>
+                <div class="subhead">Комплексные решения для наливных полов в жилых, торговых и промышленных помещениях. Сертифицировано по ISO 9001:2015.</div>
+                <div class="features-grid">
+                    <div class="feat"><i class="fas fa-flask" aria-hidden="true"></i><span>Собственные рецептуры</span></div>
+                    <div class="feat"><i class="fas fa-truck" aria-hidden="true"></i><span>Доставка по РФ и СНГ</span></div>
+                    <div class="feat"><i class="fas fa-certificate" aria-hidden="true"></i><span>ISO 9001:2015</span></div>
+                    <div class="feat"><i class="fas fa-chart-line" aria-hidden="true"></i><span>Опыт более 11 лет</span></div>
+                </div>
+            </div>
+
+            <!-- ===== ФОРМА ОБРАТНОЙ СВЯЗИ ===== -->
+            <div class="form-wrapper" id="formWrapper">
+                <h2>Отправить заявку</h2>
+                <p class="sub-form">Заполните форму — специалист подберёт материалы под ваш объект.</p>
+
+                <form id="feedbackForm" novalidate aria-label="Форма обратной связи">
+                    <div class="input-group" id="nameGroup">
+                        <i class="fas fa-user" aria-hidden="true"></i>
+                        <input type="text" id="userName" placeholder="Ваше имя" autocomplete="name" required aria-required="true" aria-label="Ваше имя">
+                        <span class="error-message" role="alert"></span>
+                    </div>
+
+                    <div class="input-group" id="emailGroup">
+                        <i class="fas fa-envelope" aria-hidden="true"></i>
+                        <input type="email" id="userEmail" placeholder="E-mail" autocomplete="email" required aria-required="true" aria-label="Электронная почта">
+                        <span class="error-message" role="alert"></span>
+                    </div>
+
+                    <div class="input-group" id="phoneGroup">
+                        <i class="fas fa-phone-alt" aria-hidden="true"></i>
+                        <input type="tel" id="userPhone" placeholder="Телефон" autocomplete="tel" aria-label="Номер телефона">
+                        <span class="error-message" role="alert"></span>
+                    </div>
+
+                    <div class="input-group" id="msgGroup">
+                        <i class="fas fa-building" aria-hidden="true"></i>
+                        <textarea id="userMessage" placeholder="Тип помещения и задача" required aria-required="true" aria-label="Описание задачи"></textarea>
+                        <span class="error-message" role="alert"></span>
+                    </div>
+
+                    <div class="checkbox-group" id="privacyGroup">
+                        <input type="checkbox" id="privacyCheck" checked required aria-required="true">
+                        <label for="privacyCheck">Нажимая на кнопку, вы соглашаетесь с <a href="#" aria-label="Политика конфиденциальности">политикой конфиденциальности</a></label>
+                    </div>
+
+                    <button type="submit" class="submit-btn" id="submitBtn">
+                        <span>Отправить заявку</span> <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+
+                    <div id="successMessage" class="success-message" role="status" aria-live="polite">
+                        <i class="fas fa-check-circle" aria-hidden="true"></i>
+                        <span>Спасибо! Мы свяжемся с вами в ближайшее время.</span>
+                    </div>
+                </form>
+            </div>
+        </section>
+
+        <!-- ===== ABOUT (О компании) ===== -->
+        <section class="section-spacer" id="about" aria-label="О компании">
+            <h2 class="section-title">О компании</h2>
+            <p class="section-sub">Высокотехнологичный производственный комплекс полного цикла</p>
+
+            <div class="about-grid">
+                <div class="about-text scroll-animate">
+                    <p><strong>SIPP-PROM</strong> — это высокотехнологичный производственный комплекс полного цикла по созданию полиуретановых, эпоксидных и акрилатных материалов.</p>
+                    <p>Для каждого материала применяется уникальная рецептура, разработанная технологами нашей лаборатории, на базе которой ведутся постоянные научно-исследовательские работы. За основу взят собственный опыт и последние тенденции развития рынка промышленных покрытий.</p>
+                    <p>Представленный ассортимент постоянно расширяется. Если существующие продукты не подходят по совокупности физических и химических свойств, наши технологи доработают их по индивидуальному рецепту.</p>
+                    <div class="cert-badge">
+                        <i class="fas fa-medal" aria-hidden="true"></i> Сертифицировано по ISO 9001:2015
+                    </div>
+                </div>
+
+                <div class="about-stats">
+                    <div class="about-stats">
+                    <div class="about-image scroll-animate" style="display: flex; justify-content: center; align-items: center;">
+                <img src="static/клей.png" alt="SIPP PROM" style="width: 100%; height: auto; max-width: 900px; min-width: 600px; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.15);">
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== НАШЕ ПРОИЗВОДСТВО (ДЕТАЛЬНЫЙ БЛОК) ===== -->
+        <section class="production-detail-section" id="production-detail" aria-label="Наше производство">
+            <div class="container">
+                <h2 class="section-title">Наше производство</h2>
+                <p class="section-sub">Собственная лаборатория и современное оборудование для стабильного качества</p>
+
+                <div class="production-detail-grid">
+                    <!-- КАРТОЧКА 1: ЛАБОРАТОРИЯ -->
+                    <div class="prod-detail-card scroll-animate" style="--card-delay: 0.1s;">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-flask" aria-hidden="true"></i>
+                            </div>
+                            <span class="card-badge">Научный подход</span>
+                        </div>
+                        <h3>Собственная лаборатория</h3>
+                        <p>Наличие научно-исследовательской лаборатории, оснащенной передовым оборудованием и технологиями, позволяет выводить на рынок готовую продукцию стабильно высокого качества, а также разрабатывать инновационные решения поставленных задач.</p>
+                        <ul class="lab-features">
+                            <li><i class="fas fa-microscope" aria-hidden="true"></i> Исследования и разработка рецептур</li>
+                            <li><i class="fas fa-vial" aria-hidden="true"></i> Контроль качества на всех этапах</li>
+                            <li><i class="fas fa-lightbulb" aria-hidden="true"></i> Инновационные решения под заказ</li>
+                        </ul>
+                    </div>
+
+                    <!-- КАРТОЧКА 2: ПРОИЗВОДСТВО -->
+                    <div class="prod-detail-card highlight scroll-animate" style="--card-delay: 0.2s;">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-industry" aria-hidden="true"></i>
+                            </div>
+                            <span class="card-badge">Швеция</span>
+                        </div>
+                        <h3>Современное производство</h3>
+                        <p>Производство оснащено <strong>4 реакторами</strong> с шнековыми и рамочными мешалками, а также фрезами с функциями нагрева и охлаждения производства <strong>Westerlins</strong> (Швеция).</p>
+                        <ul class="prod-features">
+                            <li><i class="fas fa-cogs" aria-hidden="true"></i> <strong>4 реактора</strong> Westerlins</li>
+                            <li><i class="fas fa-thermometer-half" aria-hidden="true"></i> Нагрев и охлаждение</li>
+                            <li><i class="fas fa-check-double" aria-hidden="true"></i> 100% контроль качества</li>
+                            <li><i class="fas fa-robot" aria-hidden="true"></i> Автоматическая линия с ЧПУ</li>
+                        </ul>
+                        <div class="tech-badge">
+                            <i class="fas fa-microchip" aria-hidden="true"></i> Цифровое управление
+                        </div>
+                    </div>
+
+                    <!-- КАРТОЧКА 3: КОНТРОЛЬ КАЧЕСТВА -->
+                    <div class="prod-detail-card scroll-animate" style="--card-delay: 0.3s;">
+                        <div class="card-header">
+                            <div class="card-icon">
+                                <i class="fas fa-clipboard-check" aria-hidden="true"></i>
+                            </div>
+                            <span class="card-badge">ISO 9001:2015</span>
+                        </div>
+                        <h3>Контроль качества</h3>
+                        <p>Гарантом качества наших товаров является высокий уровень технологического контроля на всех этапах. Автоматическая линия с цифровым управлением позволяет точно осуществлять фасовку и маркировку готовых продуктов.</p>
+                        <ul class="quality-features">
+                            <li><i class="fas fa-chart-bar" aria-hidden="true"></i> Постоянный мониторинг</li>
+                            <li><i class="fas fa-weight-scale" aria-hidden="true"></i> Точная фасовка</li>
+                            <li><i class="fas fa-tag" aria-hidden="true"></i> Автоматическая маркировка</li>
+                        </ul>
+                        <div class="cert-badge-small">
+                            <i class="fas fa-certificate" aria-hidden="true"></i> Сертифицировано
+                        </div>
+                    </div>
+                </div>
+
+                <!-- ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ ОБ ОБОРУДОВАНИИ -->
+                <div class="equipment-showcase scroll-animate" style="--card-delay: 0.4s;">
+                    <div class="equipment-header">
+                        <h4><i class="fas fa-microchip" aria-hidden="true"></i> Технологическая база</h4>
+                        <span class="equipment-sub">Оборудование Westerlins (Швеция)</span>
+                    </div>
+                    <div class="equipment-grid">
+                        <div class="equip-item">
+                            <i class="fas fa-arrow-rotate-right" aria-hidden="true"></i>
+                            <div>
+                                <strong>Шнековые мешалки</strong>
+                                <span>Однородное смешивание компонентов</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <i class="fas fa-arrows-up-down" aria-hidden="true"></i>
+                            <div>
+                                <strong>Рамочные мешалки</strong>
+                                <span>Интенсивное перемешивание вязких составов</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <i class="fas fa-fire" aria-hidden="true"></i>
+                            <div>
+                                <strong>Фрезы с нагревом</strong>
+                                <span>Контролируемая температура до 200°C</span>
+                            </div>
+                        </div>
+                        <div class="equip-item">
+                            <i class="fas fa-snowflake" aria-hidden="true"></i>
+                            <div>
+                                <strong>Фрезы с охлаждением</strong>
+                                <span>Быстрое охлаждение для стабилизации</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== PRODUCTION ===== -->
+        <section class="production-section" id="production" aria-label="Производство">
+            <h2 class="section-title">Производство полного цикла</h2>
+            <p class="section-sub">Каждый этап — от сырья до отгрузки — под строгим контролем</p>
+
+            <div class="production-grid">
+                <div class="prod-item accent scroll-animate">
+                    <i class="fas fa-flask" aria-hidden="true"></i>
+                    <h3>Собственные рецептуры</h3>
+                    <p>Разработка и тестирование в собственной лаборатории профессиональными технологами.</p>
+                </div>
+
+                <div class="prod-item scroll-animate">
+                    <i class="fas fa-cogs" aria-hidden="true"></i>
+                    <h3>4 реактора Westerlins</h3>
+                    <p>Шнековые и рамочные мешалки с функциями нагрева и охлаждения (Швеция).</p>
+                </div>
+
+                <div class="prod-item scroll-animate">
+                    <i class="fas fa-box" aria-hidden="true"></i>
+                    <h3>Проверенное сырьё</h3>
+                    <p>Поставщики с гарантией безопасности и стабильного качества материалов.</p>
+                </div>
+
+                <div class="prod-item scroll-animate">
+                    <i class="fas fa-clipboard-check" aria-hidden="true"></i>
+                    <h3>Контроль каждой партии</h3>
+                    <p>Технологический контроль на всех этапах производства и автоматическая фасовка.</p>
+                </div>
+
+                <div class="prod-item scroll-animate">
+                    <i class="fas fa-certificate" aria-hidden="true"></i>
+                    <h3>ISO 9001:2015</h3>
+                    <p>Система менеджмента сертифицирована по международному стандарту качества.</p>
+                </div>
+
+                <div class="prod-item scroll-animate">
+                    <i class="fas fa-handshake" aria-hidden="true"></i>
+                    <h3>Доверие профессионалов</h3>
+                    <p>Нашу продукцию выбирают строительные и промышленные компании по всей России.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== КАРТА ПРОЕЗДА ===== -->
+        <section class="map-section scroll-animate" id="map" aria-label="Карта проезда">
+            <div class="map-header">
+                <h2 class="section-title">Как нас найти</h2>
+            </div>
+
+            <div class="map-wrapper">
+                <div class="map-container">
+                    <iframe
+                    src="https://yandex.ru/map-widget/v1/?um=constructor%3A6d8f4b5a7c9e3f1g2h4j6k8l9m0n2o3p&amp;source=constructor"
+                    width="100%"
+                    height="450"
+                    frameborder="0"
+                    loading="lazy"
+                    allowfullscreen
+                    title="Карта проезда к офису SIPP-PROM"
+                    aria-label="Интерактивная карта с расположением офиса">
+                </iframe>
+
+                <div class="map-marker-custom" aria-hidden="true">
+                    <div class="marker-pulse"></div>
+                    <div class="marker-icon">
+                        <i class="fas fa-map-pin" aria-hidden="true"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="map-info">
+                <!-- Адрес -->
+                <div class="map-info-card">
+                    <div class="info-icon"><i class="fas fa-location-dot" aria-hidden="true"></i></div>
+                    <div class="info-content">
+                        <h4>Наш адрес</h4>
+                        <p>г. Санкт-Петербург <br> Коломяжский пр-кт, дом 10, литер Т</p>
+                        <a href="https://yandex.ru/maps/2/saint-petersburg/house/ulitsa_generala_khrulyova_16/Z0kYdAJhT0AEQFtvfXR0cHpnYkM=?ll=30.299675%2C60.001898&z=17" target="_blank" rel="noopener noreferrer" class="route-link">
+                            <i class="fas fa-route" aria-hidden="true"></i> Проложить маршрут
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Общественный транспорт -->
+                <div class="map-info-card transport-card">
+                    <div class="info-icon"><i class="fas fa-bus" aria-hidden="true"></i></div>
+                    <div class="info-content">
+                        <h4>Общественный транспорт</h4>
+                        <div class="transport-grid">
+                            <div class="transport-group">
+                                <span class="transport-label">Ближайшие остановки:</span>
+                                <ul class="stop-list">
+                                    <li><span class="stop-dist">250 м</span> «Серебристый бульвар, 1»</li>
+                                    <li><span class="stop-dist">650 м</span> «Байконурская»</li>
+                                    <li><span class="stop-dist">678 м</span> «Богатырский проспект, 11»</li>
+                                    <li><span class="stop-dist">683 м</span> «Серебристый бульвар»</li>
+                                </ul>
+                            </div>
+                            <div class="transport-group">
+                                <span class="transport-label">Маршруты:</span>
+                                <ul class="route-list">
+                                    <li><span class="route-badge trolley">25</span> Троллейбус → «Серебристый бульвар, 1»</li>
+                                    <li><span class="route-badge bus">93</span> <span class="route-badge bus">172</span> <span class="route-badge bus">184</span> <span class="route-badge bus">235</span> <span class="route-badge trolley">40</span> → «Байконурская»</li>
+                                    <li><span class="route-badge bus">93</span> <span class="route-badge bus">170</span> <span class="route-badge bus">172</span> <span class="route-badge bus">184</span> <span class="route-badge bus">235</span> <span class="route-badge trolley">25</span> <span class="route-badge trolley">40</span> → «Серебристый бульвар»</li>
+                                    <li><span class="route-badge bus">122</span> <span class="route-badge bus">170</span> → «Богатырский проспект»</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Метро + режим работы -->
+                <div class="map-info-card">
+                    <div class="info-icon"><i class="fas fa-subway" aria-hidden="true"></i></div>
+                    <div class="info-content">
+                        <h4>Станции метро</h4>
+                        <div class="metro-list">
+                            <span class="metro-item">
+                                <span class="metro-line line-2" aria-label="Линия 2">2</span> «Пионерская» <span class="metro-dist">~1,97 км</span>
+                            </span>
+                            <span class="metro-item">
+                                <span class="metro-line line-5" aria-label="Линия 5">5</span> «Чёрная речка» <span class="metro-dist">~2,72 км</span>
+                            </span>
+                            <span class="metro-item">
+                                <span class="metro-line line-5" aria-label="Линия 5">5</span> «Комендантский проспект» <span class="metro-dist">~2,88 км</span>
+                            </span>
+                        </div>
+                        <div class="work-info">
+                            <span class="work-time"><i class="fas fa-clock" aria-hidden="true"></i> Пн–Пт: 10:00 – 18:00</span>
+                            <span class="work-time"><i class="fas fa-phone" aria-hidden="true"></i> +7 (800) 777-01-98</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== FOOTER ===== -->
+        <footer class="footer" id="contacts" role="contentinfo">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>SIPP-PROM</h3>
+                    <p>Профессиональные полиуретановые, эпоксидные и акрилатные материалы. Производство с 2013 года.</p>
+                    <div class="cert"><i class="fas fa-check-circle" aria-hidden="true"></i> Сертифицировано по ISO 9001:2015</div>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Контакты</h4>
+                    <a href="tel:+88007770198">
+                    <i class="fas fa-phone" aria-hidden="true" style="margin-right: 8px;"></i> 8 (812) 329-07-15
+                    </a>
+                    <a href="mailto:info@sipp.pro">
+                        <i class="fas fa-envelope" aria-hidden="true" style="margin-right: 8px"></i> INFO@SIPP-PROM.RU
+                    </a>
+                    <div class="item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Санкт-Петербург г., Коломяжский пр-кт, дом 10, литер Т</div>
+                    <div class="item"><i class="fas fa-clock" aria-hidden="true"></i> пн–пт 10:00 – 19:00</div>
+                    <a href="#about">О компании</a>
+                    <a href="#production">Производство</a>
+                    <a href="#map">Как найти</a>
+                </div>
+
+                <div class="footer-col">
+                    <h4>Реквизиты</h4>
+                    <div class="requisites">
+                        <strong>ООО «СИПП-ПРОM»</strong><br>
+                        ИНН 7814747161 · КПП 781401001<br>
+                        Р/с 40702810332000013849<br>
+                        БИК 044030786<br>
+                        Кор/с 30101810600000000786
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <span>© 2026 SIPP-PROM. Все права защищены.</span>
+                <div class="links">
+                    <a href="#">Политика конфиденциальности</a>
+                    <a href="#">Договор оферты</a>
+                    <a href="https://sipp.pro/" target="_blank" rel="noopener noreferrer" class="shop-link-footer">
+                        <i class="fas fa-store" aria-hidden="true" style="margin-right: 8px;"></i> Интернет-магазин
+                    </a>
+                </div>
+                <div class="socials">
+                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                    <a href="#" aria-label="VK"><i class="fab fa-vk" aria-hidden="true"></i></a>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script>
+        (function() {
+            'use strict';
+
+            // ============================================================
+            // БУРГЕР-МЕНЮ
+            // ============================================================
+            const burgerBtn = document.getElementById('burgerBtn');
+            const navLinks = document.getElementById('navLinks');
+
+            if (burgerBtn && navLinks) {
+                burgerBtn.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    const isOpen = this.classList.toggle('active');
+                    navLinks.classList.toggle('open');
+                    this.setAttribute('aria-expanded', isOpen);
+                    this.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+                });
+
+                document.querySelectorAll('.nav-links a').forEach(link => {
+                    link.addEventListener('click', () => {
+                        burgerBtn.classList.remove('active');
+                        navLinks.classList.remove('open');
+                        burgerBtn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+
+                document.addEventListener('click', function(e) {
+                    if (!e.target.closest('.header')) {
+                        burgerBtn.classList.remove('active');
+                        navLinks.classList.remove('open');
+                        burgerBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+
+            // ============================================================
+            // АНИМАЦИЯ ПРИ СКРОЛЛЕ (Intersection Observer)
+            // ============================================================
+            const animatedElements = document.querySelectorAll('.scroll-animate');
+
+            if ('IntersectionObserver' in window) {
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.15,
+                    rootMargin: '0px 0px -50px 0px'
+                });
+
+                animatedElements.forEach(el => observer.observe(el));
+            } else {
+                animatedElements.forEach(el => el.classList.add('visible'));
+            }
+
+            // ============================================================
+            // ФОРМА ОБРАТНОЙ СВЯЗИ
+            // ============================================================
+            const form = document.getElementById('feedbackForm');
+            const nameInp = document.getElementById('userName');
+            const emailInp = document.getElementById('userEmail');
+            const phoneInp = document.getElementById('userPhone');
+            const msgInp = document.getElementById('userMessage');
+            const privacyChk = document.getElementById('privacyCheck');
+            const successDiv = document.getElementById('successMessage');
+            const submitBtn = document.getElementById('submitBtn');
+            const formWrapper = document.getElementById('formWrapper');
+
+            const nameGr = document.getElementById('nameGroup');
+            const emailGr = document.getElementById('emailGroup');
+            const phoneGr = document.getElementById('phoneGroup');
+            const msgGr = document.getElementById('msgGroup');
+            const privacyGr = document.getElementById('privacyGroup');
+
+            function resetErrors() {
+                [nameGr, emailGr, phoneGr, msgGr].forEach(el => el.classList.remove('error'));
+                privacyGr.style.color = '';
+                document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
+            }
+
+            function showError(group, message) {
+                group.classList.add('error');
+                const errorEl = group.querySelector('.error-message');
+                if (errorEl) errorEl.textContent = message;
+            }
+
+            function showSuccessAndReset() {
+                successDiv.classList.add('show');
+                nameInp.value = '';
+                emailInp.value = '';
+                phoneInp.value = '';
+                msgInp.value = '';
+                privacyChk.checked = true;
+                resetErrors();
+
+                setTimeout(() => successDiv.classList.remove('show'), 5000);
+            }
+
+            function isValidEmail(email) {
+                return /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/.test(email);
+            }
+
+            function isValidPhone(phone) {
+                if (phone.trim() === '') return true;
+                return /^[\+\d\s\-\(\)]{5,18}$/.test(phone.trim());
+            }
+
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+
+                const nameVal = nameInp.value.trim();
+                const emailVal = emailInp.value.trim();
+                const phoneVal = phoneInp.value.trim();
+                const msgVal = msgInp.value.trim();
+                let valid = true;
+                resetErrors();
+
+                if (nameVal === '' || nameVal.length < 2) {
+                    showError(nameGr, 'Введите имя (минимум 2 символа)');
+                    valid = false;
+                }
+
+                if (emailVal === '' || !isValidEmail(emailVal)) {
+                    showError(emailGr, 'Введите корректный email');
+                    valid = false;
+                }
+
+                if (!isValidPhone(phoneVal)) {
+                    showError(phoneGr, 'Введите корректный номер телефона');
+                    valid = false;
+                }
+
+                if (msgVal === '' || msgVal.length < 5) {
+                    showError(msgGr, 'Опишите задачу (минимум 5 символов)');
+                    valid = false;
+                }
+
+                if (!privacyChk.checked) {
+                    privacyGr.style.color = '#E07C4C';
+                    setTimeout(() => privacyGr.style.color = '', 1500);
+                    valid = false;
+                }
+
+                if (valid) {
+                    const originalHtml = submitBtn.innerHTML;
+                    submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse" aria-hidden="true"></i> Отправка...';
+                    submitBtn.disabled = true;
+                    submitBtn.classList.add('loading');
+
+                    setTimeout(() => {
+                        console.log('=== ЗАЯВКА SIPP-PROM ===');
+                        console.log('Имя:', nameVal);
+                        console.log('Email:', emailVal);
+                        console.log('Телефон:', phoneVal || 'не указан');
+                        console.log('Сообщение:', msgVal);
+
+                        submitBtn.innerHTML = originalHtml;
+                        submitBtn.disabled = false;
+                        submitBtn.classList.remove('loading');
+                        showSuccessAndReset();
+                    }, 800);
+                } else {
+                    formWrapper.style.transform = 'scale(0.99)';
+                    setTimeout(() => formWrapper.style.transform = '', 200);
+                    setTimeout(() => formWrapper.style.transform = 'scale(1.005)', 400);
+                    setTimeout(() => formWrapper.style.transform = '', 600);
+                }
+            });
+
+            [nameInp, emailInp, phoneInp, msgInp].forEach(inp => {
+                inp.addEventListener('focus', () => {
+                    const parent = inp.closest('.input-group');
+                    if (parent) parent.classList.remove('error');
+                    const errorEl = parent?.querySelector('.error-message');
+                    if (errorEl) errorEl.textContent = '';
+                });
+            });
+
+            // ============================================================
+            // ПОДДЕРЖКА PREFERS-REDUCED-MOTION
+            // ============================================================
+            const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+            if (prefersReducedMotion.matches) {
+                document.querySelectorAll('.scroll-animate').forEach(el => {
+                    el.classList.add('visible');
+                });
+            }
+
+            // ============================================================
+            // RIPPLE ЭФФЕКТ ДЛЯ КНОПОК
+            // ============================================================
+            document.querySelectorAll('.submit-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    const rect = this.getBoundingClientRect();
+                    const x = ((e.clientX - rect.left) / rect.width) * 100;
+                    const y = ((e.clientY - rect.top) / rect.height) * 100;
+                    this.style.setProperty('--x', x + '%');
+                    this.style.setProperty('--y', y + '%');
+                });
+            });
+
+            console.log('✅ SIPP-PROM сайт загружен успешно');
+            console.log('📱 Адаптивный дизайн активен');
+            console.log('♿ Доступность улучшена');
+        })();
+    </script>
+
+</body>
+</html>
