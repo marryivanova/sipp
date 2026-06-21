@@ -1,245 +1,278 @@
-![Python](https://img.shields.io/badge/Language-Python-blue.svg?style=flat&logo=python)
-![FastAPI](https://img.shields.io/badge/Framework-FastAPI-009688.svg?style=flat&logo=fastapi)
-![Version](https://img.shields.io/badge/Version-0.1.0-informational.svg?style=flat)
-![License](https://img.shields.io/badge/License-See_LICENSE-blue.svg?style=flat)
+![Python](https://img.shields.io/badge/Python-3.9+-blue.svg)
+![FastAPI](https://img.shields.io/badge/FastAPI-0.109+-005571?logo=fastapi)
+![JavaScript](https://img.shields.io/badge/JavaScript-ES6+-F7DF1E?logo=javascript&logoColor=black)
+![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
+![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?logo=docker&logoColor=white)
 
-# ✨ Sipp: A Robust API Platform for Service Integration and Communication
+# Sipp 2: Adhesive Solutions & Customer Engagement 🚀
 
-Sipp is a modern, high-performance API platform built with FastAPI and Python, designed for seamless integration with various services and efficient communication workflows. It provides a scalable and maintainable foundation for developing feature-rich applications, supporting asynchronous operations, comprehensive logging, and flexible deployment options through Docker.
+Sipp 2 is a modern web application designed for a wholesale company specializing in adhesive products. It features a custom micro-frontend for a dynamic user experience and a robust FastAPI backend that handles feedback submissions, dispatching email notifications to the company. The project emphasizes lightweight architecture and efficient customer interaction.
 
 ## Table of Contents
 
-- [Features](#features)
-- [Tech Stack](#tech-stack)
-- [Installation](#installation)
-- [Usage](#usage)
-- [Project Structure](#project-structure)
-- [Configuration](#configuration)
-- [Contributing](#contributing)
-- [License](#license)
-- [Authors](#authors)
+-   [Features](#features)
+-   [Tech Stack](#tech-stack)
+-   [Installation](#installation)
+-   [Configuration](#configuration)
+-   [Usage](#usage)
+-   [Project Structure](#project-structure)
+-   [Contributing](#contributing)
+-   [License](#license)
+-   [Author](#author)
 
 ## Features
 
-Sipp offers a powerful set of features to streamline development and deployment of integrated services:
-
--   **High-Performance API with FastAPI:** Built on FastAPI, providing blazing-fast and highly concurrent API endpoints with automatic interactive documentation (Swagger UI/OpenAPI and ReDoc).
--   **Modular and Maintainable Architecture:** A well-organized codebase with clear separation of concerns, including dedicated modules for API endpoints, authentication, and external service configurations (e.g., SMTP).
--   **Comprehensive Logging:** Integrates `loguru` for robust and structured logging, with separate log files for debug and info levels, featuring automatic rotation, retention, and compression for efficient log management.
--   **Containerized Deployment with Docker:** Production-ready deployment facilitated by `Dockerfile` and `docker-compose.yml`, including Nginx as a reverse proxy with built-in Let's Encrypt support for secure HTTPS connections.
--   **Integrated Frontend Serving:** Capable of serving static frontend assets directly, allowing for a unified deployment of both the backend API and a client-side user interface.
--   **Asynchronous Operations & Background Tasks:** Leverages `aiofiles` for non-blocking file I/O and `celery` for efficient background task processing, enhancing application responsiveness and scalability.
--   **External Service Integrations:** Includes dependencies and modules for seamless interaction with third-party services like Bitrix24 (CRM) and SendGrid (email services).
+*   **Dynamic Micro-Frontend Website**: A custom-built, responsive user interface using HTML, CSS, and JavaScript, tailored for presenting adhesive products and engaging potential clients.
+*   **FastAPI Backend**: A lightweight and high-performance Python API built with FastAPI, serving both static frontend assets and handling backend logic.
+*   **Feedback Form & Email Notifications**: Users can submit feedback or inquiries through the website's form, triggering an automated email notification to the company's designated inbox.
+*   **Containerized Deployment**: Ready for deployment with Docker and Docker Compose, including Nginx for efficient serving and SSL termination (with Let's Encrypt integration).
+*   **Robust Logging**: Integrated `loguru` for comprehensive and structured logging of application activities, aiding in monitoring and debugging.
+*   **Authentication Endpoints**: Basic authentication support using JWT for secure API access and management (e.g., for future admin panels or internal tools).
 
 ## Tech Stack
 
-The Sipp project is built using a diverse and modern technology stack to ensure performance, scalability, and ease of development:
+The Sipp 2 project leverages a diverse set of technologies to deliver a fast, scalable, and maintainable web application:
 
--   **Python**: The primary programming language used for the backend logic.
--   **FastAPI**: A modern, fast (high-performance) web framework for building APIs with Python 3.7+ based on standard Python type hints.
--   **Uvicorn**: An ASGI server, essential for running FastAPI applications efficiently.
--   **Pydantic**: Provides data validation and settings management using Python type hints, ensuring robust and type-safe configurations.
--   **Pydantic-Settings**: Enhances Pydantic for application settings, allowing configuration via environment variables, `.env` files, etc.
--   **Express.js**: (Mentioned in project context) A popular Node.js web application framework, often used for building robust APIs and web applications. While the primary backend here is FastAPI, it might imply client-side interaction or a broader architectural context.
--   **Poetry**: A powerful dependency management and packaging tool for Python.
--   **Docker**: A platform for developing, shipping, and running applications in containers, enabling consistent environments.
--   **Nginx**: A high-performance web server and reverse proxy used for routing and serving requests, especially with SSL termination.
--   **python-multipart**: Used for parsing `multipart/form-data` requests, common in file uploads.
--   **Celery**: A distributed task queue system for executing asynchronous tasks and background jobs.
--   **Jinja2**: A modern and designer-friendly templating language for Python, used for dynamic HTML content.
--   **HTTPX**: A fully-featured HTTP client for Python, supporting HTTP/1.1 and HTTP/2.
--   **aiofiles**: Enables asynchronous file operations, crucial for non-blocking I/O in ASGI applications.
--   **Loguru**: A library that brings joy to Python logging with its simplicity and power.
--   **itsdangerous**: Provides tools to safely sign and serialize data, often used for token generation.
--   **PyJWT**: A Python implementation of JSON Web Tokens, used for secure authentication and authorization.
--   **bitrix24-python3-client**: A Python client for interacting with the Bitrix24 CRM API.
--   **sentry-sdk**: The official SDK for Sentry, enabling robust error tracking and performance monitoring.
--   **starlette**: The lightweight ASGI framework that FastAPI is built upon, providing essential tools for web development.
--   **python-dotenv**: Loads environment variables from `.env` files, simplifying local configuration.
--   **requests**: An elegant and simple HTTP library for Python, used for making web requests.
--   **SQLAlchemy**: A powerful SQL toolkit and Object-Relational Mapper (ORM) for database interactions.
--   **PyMySQL**: A pure-Python MySQL client library.
--   **redis**: A Python client for Redis, a powerful in-memory data store.
--   **mysql-connector-python**: The official MySQL driver for Python.
--   **tenacity**: A general-purpose retrying library, adding resilience to network requests and other operations.
--   **PyBitrix**: Another Python library for interacting with the Bitrix24 API.
--   **apscheduler**: An in-process task scheduler with optional persistent storage, useful for cron-like jobs.
--   **Babel**: Internationalization utilities for Python applications.
--   **sendgrid**: The official SendGrid API library for sending emails.
--   **watchdog**: Python API and shell utilities to monitor filesystem events.
+*   **Python**: The primary backend programming language.
+    *   **FastAPI**: A modern, fast (high-performance) web framework for building APIs with Python 3.7+ based on standard Python type hints.
+    *   **Pydantic**: Data validation and settings management using Python type hints, crucial for API request/response models and configuration.
+    *   **Pydantic-Settings**: Manages application settings, allowing for flexible configuration via environment variables, `.env` files, and more.
+    *   **Python-Multipart**: Required for handling form data, especially file uploads in FastAPI.
+    *   **Celery**: An asynchronous task queue/job queue, potentially used for background tasks like sending emails without blocking the main request thread.
+    *   **Jinja2**: A modern and designer-friendly templating language for Python, used here to render HTML email templates.
+    *   **HTTPX**: A robust HTTP client for Python, used for making asynchronous HTTP requests.
+    *   **AIOFiles**: Enables asynchronous file operations, which is beneficial for non-blocking I/O.
+    *   **Loguru**: A simple yet powerful logging library for Python, providing flexible and structured logging.
+    *   **ItsDangerous**: Safely sign data, useful for handling tokens, cookies, or other sensitive information.
+    *   **PyJWT**: Python implementation of JSON Web Token, used for handling authentication tokens.
+    *   **Uvicorn**: An ASGI web server, used to serve the FastAPI application.
+    *   **FastAPI-Mail**: A library for sending emails easily with FastAPI, used for feedback notifications.
+*   **CSS**: Used for styling the frontend, creating a visually appealing and responsive design.
+*   **HTML**: The standard markup language for creating web pages, forming the structure of the micro-frontend.
+*   **JavaScript**: Adds interactivity and dynamic behavior to the frontend, including the feedback form logic.
+*   **Docker**: Containerization platform to package the application and its dependencies into isolated containers.
+*   **Docker Compose**: A tool for defining and running multi-container Docker applications, orchestrating the FastAPI server and Nginx.
+*   **Nginx**: A high-performance web server, reverse proxy, and load balancer, used here to serve the frontend and proxy requests to the FastAPI backend.
+*   **Poetry/Pip**: Python dependency management tools. Poetry is used in `pyproject.toml`, which internally manages dependencies that can be installed via pip.
 
 ## Installation
 
-Follow these steps to set up Sipp locally or with Docker:
+Follow these steps to set up and run the Sipp 2 project locally or with Docker.
 
 ### Prerequisites
 
-Ensure you have the following installed:
-
--   Python 3.9+
--   Poetry (recommended) or pip
--   Docker and Docker Compose (for containerized deployment)
+*   Python 3.9+
+*   Poetry (recommended) or pip
+*   Docker and Docker Compose (for containerized deployment)
 
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/sipp.git
-cd sipp
+git clone <repository_url>
+cd Sipp-2
 
 ```
+*(Replace `<repository_url>` with the actual URL of your project repository.)*
 
-### 2. Environment Variables
+### 2. Python Environment Setup (Local)
 
-Create a `.env` file in the root directory of the project and populate it with necessary environment variables. Refer to `settings.py` for required variables. Example:
+If you prefer to run the backend directly on your machine:
 
-```dotenv
-APP_HOST=0.0.0.0
-APP_PORT=8000
-APP_DOMAIN=http://localhost:8000
-NGINX_CONF_FILENAME=default # Or whatever your Nginx config is named (e.g., sippprom.hwschool.pro)
-
-LE_EMAIL= # For Let's Encrypt in Docker Compose
-
-LE_FQDN= # For Let's Encrypt in Docker Compose
-
-LETSENCRYPT=true # Set to true to enable Let's Encrypt
-
-```
-
-### 3. Using Poetry (Recommended)
-
-If you have Poetry installed:
-
-```bash
-poetry install
-poetry shell
-
-```
-
-### 4. Using pip
-
-If you prefer pip:
-
-```bash
-python -m venv .venv
-source .venv/bin/activate  # On Windows use `.venv\Scripts\activate`
-
-pip install -r requirements.txt # (assuming you generate this from pyproject.toml: `poetry export -f requirements.txt --output requirements.txt --without-hashes`)
-
-```
-**Note**: If `requirements.txt` is not available, you can install dependencies manually or generate it from `pyproject.toml` using Poetry.
-
-### 5. Docker Deployment
-
-For a production-like setup with Nginx and HTTPS:
-
-```bash
-docker-compose build
-docker-compose up -d
-
-```
-
-This will build and start the `server-sip` (FastAPI backend) and `nginx-sipp` (Nginx reverse proxy) services. The Nginx service is configured with `umputun/nginx-le` to automatically provision SSL certificates via Let's Encrypt using the `LE_EMAIL` and `LE_FQDN` environment variables.
-
-## Usage
-
-### Running Locally
-
-After installation, you can run the FastAPI application directly:
-
-1.  **Activate your virtual environment** (if using Poetry, `poetry shell`; if using pip, `source .venv/bin/activate`).
-2.  **Run the application** using Uvicorn:
-
+1.  **Create a Virtual Environment:**
     ```bash
-    uvicorn main:app --reload --host 0.0.0.0 --port 8000
+    python -m venv .venv
+    source .venv/bin/activate # On Windows: .venv\Scripts\activate
 
     ```
 
-    The API will be accessible at `http://localhost:8000`.
+2.  **Install Dependencies using Poetry:**
+    ```bash
+    pip install poetry
+    poetry install
 
-### Accessing API Documentation
+    ```
+    *Alternatively, if using pip:*
+    ```bash
+    pip install -r requirements.txt # (You might need to generate this from poetry lock file: poetry export -f requirements.txt --output requirements.txt --without-hashes)
 
-Once the application is running, you can access the interactive API documentation:
+    ```
 
--   **Swagger UI**: `http://localhost:8000/docs`
--   **ReDoc**: `http://localhost:8000/redoc`
+### 3. Environment Variables
 
-### Running with Docker Compose
+Create a `.env` file in the root directory of the project, next to `docker-compose.yml` and `pyproject.toml`. This file will store sensitive information and configuration settings.
 
-If you started the services with `docker-compose up -d`:
+```dotenv
+# .env example
+# SMTP Settings (for sending feedback emails)
 
--   The application will be accessible via Nginx, typically on ports 80 (HTTP) and 443 (HTTPS) if Let's Encrypt is configured and working. Check your `LE_FQDN` setting for the domain.
--   The FastAPI server itself will be running internally on port `8000` within its container.
+SMTP_EMAIL="your_sender_email@example.com"
+SMTP_PASSWORD="your_email_app_password" # Use an app password if using Gmail/Outlook
+
+SMTP_SERVER="smtp.example.com" # e.g., smtp.gmail.com
+
+SMTP_PORT=587 # e.g., 587 for TLS, 465 for SSL
+
+# Application Settings (optional, can be overridden by docker-compose)
+
+APP_PORT=8000
+APP_HOST="0.0.0.0"
+APP_DOMAIN="http://localhost"
+
+# Nginx Configuration
+
+NGINX_CONF_FILENAME="default" # Or the name of your specific Nginx config file without .conf extension
+
+```
+**Note:** For the Nginx/LetsEncrypt setup in `docker-compose.yml`, you might also need to configure `LE_EMAIL` and `LE_FQDN` directly in the `docker-compose.yml` or ensure they are provided in the environment where Docker Compose runs.
+
+### 4. Dockerized Deployment (Recommended)
+
+For a production-ready setup using Docker:
+
+1.  **Build and Run Services:**
+    ```bash
+    docker-compose up --build -d
+
+    ```
+    This command will build the `server-sip` (FastAPI backend) and `nginx-sipp` containers, then start them in detached mode.
+
+2.  **Verify Services:**
+    ```bash
+    docker-compose ps
+
+    ```
+    You should see both `server` and `nginx-sipp` containers running.
+
+## Configuration
+
+Configuration for Sipp 2 is primarily managed through `settings.py` and environment variables defined in the `.env` file.
+
+*   `settings.py`: Uses `pydantic-settings` to load application settings from environment variables.
+    *   `AppSettings`: General application settings (debug mode, host, port, environment).
+    *   `ConfigForUvicornRun`: Specific settings for `uvicorn` server (port, host, domain).
+    *   `SmtpSettings`: Critical for email functionality, sourcing `SMTP_EMAIL`, `SMTP_PASSWORD`, `SMTP_SERVER`, and `SMTP_PORT` from environment variables.
+
+Ensure your `.env` file (or system environment variables) correctly defines these variables for the application to function as expected, especially the SMTP settings for feedback emails.
+
+## Usage
+
+### Accessing the Website
+
+Once the Docker containers are running (or the local server is started), you can access the website:
+
+*   **With Docker Compose**: If Nginx is serving on ports 80/443, navigate to `http://localhost` (or the `LE_FQDN` if configured with a domain).
+*   **Locally (Backend only, Nginx not running)**: The FastAPI application will typically be available at `http://127.0.0.1:8000` or `http://localhost:8000`. The frontend files (`front/public/`) will be served statically from this endpoint.
+
+### Running the Backend Locally
+
+To start the FastAPI backend locally:
+
+```bash
+source .venv/bin/activate # Activate virtual environment if not already active
+
+poetry run uvicorn main:app --host 0.0.0.0 --port 8000 --reload
+
+```
+This will start the FastAPI server on `http://localhost:8000`.
+
+### API Endpoints
+
+The FastAPI application exposes the following key endpoints:
+
+*   **GET `/docs`**: Swagger UI for interactive API documentation.
+*   **GET `/redoc`**: ReDoc documentation for the API.
+*   **POST `/v1/api/send-email`**: Sends a feedback email to the company.
+    *   **Request Body**:
+        ```json
+        {
+          "name": "John Doe",
+          "email": "john.doe@example.com",
+          "phone_number": "+1234567890",
+          "info": "I am interested in your adhesive products."
+        }
+
+        ```
+*   **Authentication Endpoints**: Check `/v1/api/auth` (and related endpoints like `/v1/api/token`) in the API documentation for authentication workflows.
 
 ## Project Structure
 
 ```
-├── Dockerfile
-├── README.md
-├── aireadme_output/
-│   └── project_structure.txt
-├── docker-compose.yml
-├── front/
-│   └── public/
-│       ├── func.js
-│       ├── index.html
-│       ├── logo.jpg
-│       ├── style.css
-│       └── клей.png
-├── logs/
-│   ├── debug/
-│   │   └── logs.log
-│   └── info/
-│       └── logs.log
-├── main.py
-├── nginx/
-│   └── Dockerfile
-├── poetry.lock
-├── pydoc-markdown.yaml
-├── pyproject.toml
-├── secret_key.json
-├── settings.py
-└── src/
-    ├── __init__.py
-    ├── api/
-    │   ├── __init__.py
-    │   └── endpoints/
-    └── smtp_conf/
-        ├── __init__.py
-        └── smtp_gmail.py
+├── Dockerfile                  # Dockerfile for the FastAPI application
+
+├── README.md                   # This README file
+
+├── docker-compose.yml          # Defines and runs multi-container Docker applications
+
+├── front/                      # Frontend micro-frontend assets
+
+│   └── public/                 # Static public assets (HTML, CSS, JS, images)
+
+│       ├── func.js             # JavaScript for frontend interactivity (e.g., burger menu, feedback form logic)
+
+│       ├── index.html          # Main HTML entry point of the website
+
+│       ├── logo.jpg            # Company logo
+
+│       ├── style.css           # Global CSS styles for the website
+
+│       └── клей.png            # Image asset (likely related to adhesive products)
+
+├── main.py                     # Main FastAPI application entry point, mounts API and static files
+
+├── nginx/                      # Nginx configuration and assets for Docker
+
+│   └── Dockerfile              # Dockerfile for custom Nginx image (if any)
+
+├── pyproject.toml              # Project metadata and Poetry dependency configuration
+
+├── settings.py                 # Pydantic-based application settings management
+
+└── src/                        # Source code for the FastAPI backend
+
+    ├── __init__.py             # Python package initializer
+
+    ├── api/                    # API related modules
+
+    │   ├── __init__.py         # API package initializer, defines `api_router`
+
+    │   └── endpoints/          # Specific API endpoint definitions
+
+    │       ├── __init__.py     # Endpoints package initializer
+
+    │       ├── auth.py         # Authentication related endpoints (login, token generation, verification)
+
+    │       ├── sender_kp.py    # Endpoint for sending feedback emails
+
+    │       ├── helper/         # Helper utilities for endpoints
+
+    │       │   └── generator_secret_key/ # Module for generating and managing a secret key
+
+    │       │       └── create_secret_key.py # Logic for generating a secure secret key
+
+    │       └── template/       # Email templating for notifications
+
+    │           ├── template_data.py    # Logic for rendering Jinja2 email templates
+
+    │           └── template_email.html # HTML template for feedback emails
+
+    └── smtp_conf/              # SMTP configuration for email sending
+
+        ├── __init__.py         # SMTP configuration package initializer
+
+        └── smtp_gmail.py       # Configuration for sending emails via FastAPI-Mail
 
 ```
 
--   **`front/`**: Contains static files for the frontend, served by the FastAPI application.
--   **`src/`**: Houses the core application logic, including API endpoints and specific configurations.
-    -   **`src/api/endpoints/`**: Directory for defining various API routes and their handlers.
-    -   **`src/smtp_conf/`**: Contains modules related to SMTP (email) configurations, such as `smtp_gmail.py`.
--   **`main.py`**: The main entry point of the FastAPI application, where the app instance is created, logging is set up, static files are mounted, and API routers are included.
--   **`settings.py`**: Centralized configuration management using Pydantic, defining application settings and environment variable mappings.
--   **`docker-compose.yml`**: Defines the multi-service Docker environment, orchestrating the FastAPI backend and Nginx reverse proxy.
--   **`nginx/`**: Contains Nginx specific configurations and potentially SSL certificate volumes.
--   **`pyproject.toml`** and **`poetry.lock`**: Poetry's files for managing project dependencies and virtual environments.
--   **`secret_key.json`**: Stores the application's secret key, used for security purposes like token signing.
--   **`logs/`**: Directory dedicated to storing application logs, separated by debug and info levels.
--   **`pydoc-markdown.yaml`**: Configuration file for generating documentation from Python docstrings.
-
-## Configuration
-
-Sipp's configuration is flexible and can be managed through several mechanisms:
-
--   **`.env` File**: Environment variables are loaded from the `.env` file in the project root. This is the primary way to configure settings like `APP_HOST`, `APP_PORT`, `APP_DOMAIN`, and Nginx-specific variables (`NGINX_CONF_FILENAME`, `LE_EMAIL`, `LE_FQDN`, `LETSENCRYPT`).
--   **`settings.py`**: Defines application settings using Pydantic, allowing for type-hinted and validated configurations. These settings can pull values from environment variables or provide defaults.
--   **`secret_key.json`**: Contains a JSON object holding the `secret_key` used for cryptographic operations within the application (e.g., JWT signing).
--   **`nginx/`**: Nginx configuration files (e.g., `nginx/${NGINX_CONF_FILENAME}.conf`) and SSL certificate volumes (`./nginx/ssl`) are used to configure the reverse proxy and HTTPS.
-
 ## Contributing
 
-Contributions are welcome! Please feel free to open issues or submit pull requests with improvements, bug fixes, or new features.
+Contributions are welcome! If you have suggestions for improvements, bug fixes, or new features, please open an issue or submit a pull request.
 
 ## License
 
-This project is licensed under an open-source license. Please see the `LICENSE` file for full details.
+All rights reserved.
 
-## Authors
+## Author
 
--   Ola Amigo (olyabjj@gmail.com)
+Ola Amigo (olyabjj@gmail.com)
+```
