@@ -13,7 +13,11 @@ def load_html_template_jinja(name: str, email: str, phone: str, info: str) -> st
         template = env.get_template("template_email.html")
 
         html_content = template.render(
-            name=name, email=email, phone=phone, info=info, date=datetime.now().strftime("%d.%m.%Y %H:%M")
+            name=name,
+            email=email,
+            phone=phone,
+            info=info,
+            date=datetime.now().strftime("%d.%m.%Y %H:%M"),
         )
 
         logger.info("✅ Шаблон сгенерирован через Jinja2")
