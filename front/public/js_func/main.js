@@ -1,40 +1,50 @@
-(function () {
+(function() {
     'use strict';
-
-    // ============================================================
-    // БУРГЕР-МЕНЮ
-    // ============================================================
     const burgerBtn = document.getElementById('burgerBtn');
     const navLinks = document.getElementById('navLinks');
 
     if (burgerBtn && navLinks) {
-        burgerBtn.addEventListener('click', function (e) {
+        function toggleMenu(forceState) {
+            const isOpen = forceState !== undefined ? forceState : !navLinks.classList.contains('open');
+            navLinks.classList.toggle('open', isOpen);
+            burgerBtn.classList.toggle('active', isOpen);
+            burgerBtn.setAttribute('aria-expanded', isOpen);
+            burgerBtn.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+        }
+
+        burgerBtn.addEventListener('click', function(e) {
             e.stopPropagation();
-            const isOpen = this.classList.toggle('active');
-            navLinks.classList.toggle('open');
-            this.setAttribute('aria-expanded', isOpen);
-            this.setAttribute('aria-label', isOpen ? 'Закрыть меню' : 'Открыть меню');
+            toggleMenu();
         });
 
         document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                burgerBtn.classList.remove('active');
-                navLinks.classList.remove('open');
-                burgerBtn.setAttribute('aria-expanded', 'false');
-            });
+            link.addEventListener('click', () => toggleMenu(false));
         });
 
-        document.addEventListener('click', function (e) {
+        document.addEventListener('click', function(e) {
             if (!e.target.closest('.header')) {
-                burgerBtn.classList.remove('active');
-                navLinks.classList.remove('open');
-                burgerBtn.setAttribute('aria-expanded', 'false');
+                toggleMenu(false);
             }
         });
+
+        let touchStartY = 0;
+        document.addEventListener('touchstart', function(e) {
+            touchStartY = e.changedTouches[0].screenY;
+        }, false);
+
+        document.addEventListener('touchmove', function(e) {
+            if (navLinks.classList.contains('open')) {
+                const touchEndY = e.changedTouches[0].screenY;
+                const diff = touchStartY - touchEndY;
+                if (diff > 50) {
+                    toggleMenu(false);
+                }
+            }
+        }, false);
     }
 
     // ============================================================
-    // АНИМАЦИЯ ПРИ СКРОЛЛЕ (Intersection Observer)
+    // АНИМАЦИЯ ПРИ СКРОЛЛЕ
     // ============================================================
     const animatedElements = document.querySelectorAll('.scroll-animate');
 
@@ -75,27 +85,30 @@
     const privacyGr = document.getElementById('privacyGroup');
 
     function resetErrors() {
-        [nameGr, emailGr, phoneGr, msgGr].forEach(el => el.classList.remove('error'));
-        privacyGr.style.color = '';
+        [nameGr, emailGr, phoneGr, msgGr].forEach(el => el?.classList.remove('error'));
+        if (privacyGr) privacyGr.style.color = '';
         document.querySelectorAll('.error-message').forEach(el => el.textContent = '');
     }
 
     function showError(group, message) {
+        if (!group) return;
         group.classList.add('error');
         const errorEl = group.querySelector('.error-message');
         if (errorEl) errorEl.textContent = message;
     }
 
     function showSuccessAndReset() {
-        successDiv.classList.add('show');
-        nameInp.value = '';
-        emailInp.value = '';
-        phoneInp.value = '';
-        msgInp.value = '';
-        privacyChk.checked = true;
+        if (successDiv) successDiv.classList.add('show');
+        if (nameInp) nameInp.value = '';
+        if (emailInp) emailInp.value = '';
+        if (phoneInp) phoneInp.value = '';
+        if (msgInp) msgInp.value = '';
+        if (privacyChk) privacyChk.checked = true;
         resetErrors();
 
-        setTimeout(() => successDiv.classList.remove('show'), 5000);
+        setTimeout(() => {
+            if (successDiv) successDiv.classList.remove('show');
+        }, 5000);
     }
 
     function isValidEmail(email) {
@@ -107,13 +120,13 @@
         return /^[\+\d\s\-\(\)]{5,18}$/.test(phone.trim());
     }
 
-    form.addEventListener('submit', (e) => {
+    form?.addEventListener('submit', (e) => {
         e.preventDefault();
 
-        const nameVal = nameInp.value.trim();
-        const emailVal = emailInp.value.trim();
-        const phoneVal = phoneInp.value.trim();
-        const msgVal = msgInp.value.trim();
+        const nameVal = nameInp?.value.trim() || '';
+        const emailVal = emailInp?.value.trim() || '';
+        const phoneVal = phoneInp?.value.trim() || '';
+        const msgVal = msgInp?.value.trim() || '';
         let valid = true;
         resetErrors();
 
@@ -137,18 +150,21 @@
             valid = false;
         }
 
-        if (!privacyChk.checked) {
-            privacyGr.style.color = '#E07C4C';
-            setTimeout(() => privacyGr.style.color = '', 1500);
+        if (!privacyChk?.checked) {
+            if (privacyGr) {
+                privacyGr.style.color = '#E07C4C';
+                setTimeout(() => privacyGr.style.color = '', 1500);
+            }
             valid = false;
         }
 
-        // ↓↓↓ ЗДЕСЬ ЗАМЕНЯЕМ ВЕСЬ БЛОК if (valid) ↓↓↓
         if (valid) {
-            const originalHtml = submitBtn.innerHTML;
-            submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse" aria-hidden="true"></i> Отправка...';
-            submitBtn.disabled = true;
-            submitBtn.classList.add('loading');
+            const originalHtml = submitBtn?.innerHTML || '';
+            if (submitBtn) {
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse" aria-hidden="true"></i> Отправка...';
+                submitBtn.disabled = true;
+                submitBtn.classList.add('loading');
+            }
 
             const formData = {
                 name: nameVal,
@@ -158,20 +174,21 @@
             };
 
             const xhr = new XMLHttpRequest();
-            xhr.open('POST', 'http://127.0.0.1:8000/v1/api/send-email', true);
+            xhr.open('POST', '/v1/api/send-email', true);
             xhr.setRequestHeader('Content-Type', 'application/json');
 
-            xhr.onreadystatechange = function () {
+            xhr.onreadystatechange = function() {
                 if (xhr.readyState === 4) {
-                    submitBtn.innerHTML = originalHtml;
-                    submitBtn.disabled = false;
-                    submitBtn.classList.remove('loading');
+                    if (submitBtn) {
+                        submitBtn.innerHTML = originalHtml;
+                        submitBtn.disabled = false;
+                        submitBtn.classList.remove('loading');
+                    }
 
                     if (xhr.status === 200) {
-                        console.log('Успешно отправлено:', xhr.responseText);
                         showSuccessAndReset();
                     } else {
-                        console.error('Ошибка:', xhr.status, xhr.statusText);
+                        console.error('Ошибка отправки формы:', xhr.status, xhr.statusText);
                         alert('Произошла ошибка при отправке. Попробуйте позже.');
                     }
                 }
@@ -179,24 +196,28 @@
 
             xhr.send(JSON.stringify(formData));
         } else {
-            formWrapper.style.transform = 'scale(0.99)';
-            setTimeout(() => formWrapper.style.transform = '', 200);
-            setTimeout(() => formWrapper.style.transform = 'scale(1.005)', 400);
-            setTimeout(() => formWrapper.style.transform = '', 600);
+            if (formWrapper) {
+                formWrapper.style.transform = 'scale(0.99)';
+                setTimeout(() => formWrapper.style.transform = '', 200);
+                setTimeout(() => formWrapper.style.transform = 'scale(1.005)', 400);
+                setTimeout(() => formWrapper.style.transform = '', 600);
+            }
         }
     });
 
     [nameInp, emailInp, phoneInp, msgInp].forEach(inp => {
-        inp.addEventListener('focus', () => {
+        inp?.addEventListener('focus', () => {
             const parent = inp.closest('.input-group');
-            if (parent) parent.classList.remove('error');
-            const errorEl = parent?.querySelector('.error-message');
-            if (errorEl) errorEl.textContent = '';
+            if (parent) {
+                parent.classList.remove('error');
+                const errorEl = parent.querySelector('.error-message');
+                if (errorEl) errorEl.textContent = '';
+            }
         });
     });
 
     // ============================================================
-    // ПОДДЕРЖКА PREFERS-REDUCED-MOTION
+    // PREFERS-REDUCED-MOTION
     // ============================================================
     const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (prefersReducedMotion.matches) {
@@ -209,7 +230,7 @@
     // RIPPLE ЭФФЕКТ ДЛЯ КНОПОК
     // ============================================================
     document.querySelectorAll('.submit-btn').forEach(btn => {
-        btn.addEventListener('click', function (e) {
+        btn.addEventListener('click', function(e) {
             const rect = this.getBoundingClientRect();
             const x = ((e.clientX - rect.left) / rect.width) * 100;
             const y = ((e.clientY - rect.top) / rect.height) * 100;
@@ -218,7 +239,12 @@
         });
     });
 
-    console.log('✅ SIPP-PROM сайт загружен успешно');
-    console.log('📱 Адаптивный дизайн активен');
-    console.log('♿ Доступность улучшена');
+    function setVH() {
+        let vh = window.innerHeight * 0.01;
+        document.documentElement.style.setProperty('--vh', `${vh}px`);
+    }
+
+    setVH();
+    window.addEventListener('resize', setVH);
+
 })();

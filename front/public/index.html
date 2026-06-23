@@ -2,7 +2,7 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
     <meta name="description" content="SIPP-PROM — производство полиуретановых, эпоксидных и акрилатных материалов. Сертифицировано по ISO 9001:2015. Доставка по РФ и СНГ.">
     <meta name="theme-color" content="#2B8C6C">
     <title>SIPP-PROM | Профессиональные полимерные материалы</title>
@@ -17,21 +17,19 @@
     <link rel="stylesheet" href="/static/style.css">
 
     <!-- Favicon -->
-     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23E6F7F0'/%3E%3Cpath d='M24 10C20 10 16 14 16 18C16 24 20 28 24 34C28 28 32 24 32 18C32 14 28 10 24 10Z' fill='%232B8C6C'/%3E%3Ccircle cx='24' cy='18' r='4' fill='%23F8FAF9'/%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' rx='12' fill='%23E6F7F0'/%3E%3Cpath d='M24 10C20 10 16 14 16 18C16 24 20 28 24 34C28 28 32 24 32 18C32 14 28 10 24 10Z' fill='%232B8C6C'/%3E%3Ccircle cx='24' cy='18' r='4' fill='%23F8FAF9'/%3E%3C/svg%3E">
 </head>
 <body>
 
-    <!-- ===== АНИМИРОВАННЫЙ ФОН ===== -->
     <div class="animated-bg" aria-hidden="true"></div>
     <div class="bg-ornament bg-ornament-1" aria-hidden="true"></div>
     <div class="bg-ornament bg-ornament-2" aria-hidden="true"></div>
 
     <div class="container" id="main-content">
 
-        <!-- ===== HEADER ===== -->
         <header class="header" role="banner">
             <a href="#" class="logo" aria-label="SIPP-PROM — на главную">
-                <img src="static/logo.jpg" alt="SIPP-PROM логотип" style="height: 80px; width: auto; margin-right: 12px;">
+                <img src="/static/logo.jpg" alt="SIPP-PROM логотип">
                 <div>
                     <div class="logo-text">SIPP-PROM</div>
                     <div class="logo-sub">Полиуретановые и эпоксидные системы</div>
@@ -50,12 +48,11 @@
                 <a href="#map">Как найти</a>
                 <a href="#contacts">Контакты</a>
                 <a href="https://sipp.pro/" target="_blank" rel="noopener noreferrer" class="shop-link">
-                    <i class="fas fa-store" aria-hidden="true" style="margin-right:8px;"></i> Интернет-магазин
+                    <i class="fas fa-store" aria-hidden="true" style="margin-right: 8px;"></i> Интернет-магазин
                 </a>
             </nav>
         </header>
 
-        <!-- ===== ДЕКОРАТИВНАЯ ВОЛНА ===== -->
         <div class="divider-wave" aria-hidden="true">
             <svg viewBox="0 0 200 30" role="img">
                 <path d="M0 15 Q25 0 50 15 T100 15 T150 15 T200 15" stroke="#C9A84C" stroke-width="2" fill="none"/>
@@ -64,7 +61,6 @@
             </svg>
         </div>
 
-        <!-- ===== HERO + ФОРМА ===== -->
         <section class="hero-form-grid" aria-label="Презентация компании и форма заявки">
             <div class="left-cta">
                 <div class="badge"><i class="fas fa-crown"></i> Премиум качество</div>
@@ -125,7 +121,6 @@
             </div>
         </section>
 
-        <!-- ===== ABOUT (О компании) ===== -->
         <section class="section-spacer" id="about" aria-label="О компании">
             <h2 class="section-title">О компании</h2>
             <p class="section-sub">Высокотехнологичный производственный комплекс полного цикла</p>
@@ -140,121 +135,111 @@
                     </div>
                 </div>
 
-                <div class="about-stats">
-                    <div class="about-stats">
-                    <div class="about-image scroll-animate" style="display: flex; justify-content: center; align-items: center;">
-                <img src="static/клей.png" alt="SIPP PROM" style="width: 100%; height: auto; max-width: 900px; min-width: 600px; border-radius: 16px; box-shadow: 0 12px 40px rgba(0,0,0,0.15);">
+                <div class="about-image scroll-animate">
+                    <img src="static/клей.png" alt="SIPP PROM производство" loading="lazy">
                 </div>
             </div>
         </section>
 
-        <!-- ===== НАШЕ ПРОИЗВОДСТВО (ДЕТАЛЬНЫЙ БЛОК) ===== -->
         <section class="production-detail-section" id="production-detail" aria-label="Наше производство">
-            <div class="container">
-                <h2 class="section-title">Наше производство</h2>
-                <p class="section-sub">Собственная лаборатория и современное оборудование для стабильного качества</p>
+            <h2 class="section-title">Наше производство</h2>
+            <p class="section-sub">Собственная лаборатория и современное оборудование для стабильного качества</p>
 
-                <div class="production-detail-grid">
-                    <!-- КАРТОЧКА 1: ЛАБОРАТОРИЯ -->
-                    <div class="prod-detail-card scroll-animate" style="--card-delay: 0.1s;">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-flask" aria-hidden="true"></i>
-                            </div>
-                            <span class="card-badge">Научный подход</span>
+            <div class="production-detail-grid">
+                <div class="prod-detail-card scroll-animate" style="--card-delay: 0.1s;">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-flask" aria-hidden="true"></i>
                         </div>
-                        <h3>Собственная лаборатория</h3>
-                        <p>Наличие научно-исследовательской лаборатории, оснащенной передовым оборудованием и технологиями, позволяет выводить на рынок готовую продукцию стабильно высокого качества, а также разрабатывать инновационные решения поставленных задач.</p>
-                        <ul class="lab-features">
-                            <li><i class="fas fa-microscope" aria-hidden="true"></i> Исследования и разработка рецептур</li>
-                            <li><i class="fas fa-vial" aria-hidden="true"></i> Контроль качества на всех этапах</li>
-                            <li><i class="fas fa-lightbulb" aria-hidden="true"></i> Инновационные решения под заказ</li>
-                        </ul>
+                        <span class="card-badge">Научный подход</span>
                     </div>
+                    <h3>Собственная лаборатория</h3>
+                    <p>Наличие научно-исследовательской лаборатории, оснащенной передовым оборудованием и технологиями, позволяет выводить на рынок готовую продукцию стабильно высокого качества, а также разрабатывать инновационные решения поставленных задач.</p>
+                    <ul>
+                        <li><i class="fas fa-microscope" aria-hidden="true"></i> Исследования и разработка рецептур</li>
+                        <li><i class="fas fa-vial" aria-hidden="true"></i> Контроль качества на всех этапах</li>
+                        <li><i class="fas fa-lightbulb" aria-hidden="true"></i> Инновационные решения под заказ</li>
+                    </ul>
+                </div>
 
-                    <!-- КАРТОЧКА 2: ПРОИЗВОДСТВО -->
-                    <div class="prod-detail-card highlight scroll-animate" style="--card-delay: 0.2s;">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-industry" aria-hidden="true"></i>
-                            </div>
-                            <span class="card-badge">Швеция</span>
+                <div class="prod-detail-card highlight scroll-animate" style="--card-delay: 0.2s;">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-industry" aria-hidden="true"></i>
                         </div>
-                        <h3>Современное производство</h3>
-                        <p>Производство оснащено <strong>4 реакторами</strong> с шнековыми и рамочными мешалками, а также фрезами с функциями нагрева и охлаждения производства <strong>Westerlins</strong> (Швеция).</p>
-                        <ul class="prod-features">
-                            <li><i class="fas fa-cogs" aria-hidden="true"></i> <strong>4 реактора</strong> Westerlins</li>
-                            <li><i class="fas fa-thermometer-half" aria-hidden="true"></i> Нагрев и охлаждение</li>
-                            <li><i class="fas fa-check-double" aria-hidden="true"></i> 100% контроль качества</li>
-                            <li><i class="fas fa-robot" aria-hidden="true"></i> Автоматическая линия с ЧПУ</li>
-                        </ul>
-                        <div class="tech-badge">
-                            <i class="fas fa-microchip" aria-hidden="true"></i> Цифровое управление
-                        </div>
+                        <span class="card-badge">Швеция</span>
                     </div>
-
-                    <!-- КАРТОЧКА 3: КОНТРОЛЬ КАЧЕСТВА -->
-                    <div class="prod-detail-card scroll-animate" style="--card-delay: 0.3s;">
-                        <div class="card-header">
-                            <div class="card-icon">
-                                <i class="fas fa-clipboard-check" aria-hidden="true"></i>
-                            </div>
-                            <span class="card-badge">ISO 9001:2015</span>
-                        </div>
-                        <h3>Контроль качества</h3>
-                        <p>Гарантом качества наших товаров является высокий уровень технологического контроля на всех этапах. Автоматическая линия с цифровым управлением позволяет точно осуществлять фасовку и маркировку готовых продуктов.</p>
-                        <ul class="quality-features">
-                            <li><i class="fas fa-chart-bar" aria-hidden="true"></i> Постоянный мониторинг</li>
-                            <li><i class="fas fa-weight-scale" aria-hidden="true"></i> Точная фасовка</li>
-                            <li><i class="fas fa-tag" aria-hidden="true"></i> Автоматическая маркировка</li>
-                        </ul>
-                        <div class="cert-badge-small">
-                            <i class="fas fa-certificate" aria-hidden="true"></i> Сертифицировано
-                        </div>
+                    <h3>Современное производство</h3>
+                    <p>Производство оснащено <strong>4 реакторами</strong> с шнековыми и рамочными мешалками, а также фрезами с функциями нагрева и охлаждения производства <strong>Westerlins</strong> (Швеция).</p>
+                    <ul>
+                        <li><i class="fas fa-cogs" aria-hidden="true"></i> <strong>4 реактора</strong> Westerlins</li>
+                        <li><i class="fas fa-thermometer-half" aria-hidden="true"></i> Нагрев и охлаждение</li>
+                        <li><i class="fas fa-check-double" aria-hidden="true"></i> 100% контроль качества</li>
+                        <li><i class="fas fa-robot" aria-hidden="true"></i> Автоматическая линия с ЧПУ</li>
+                    </ul>
+                    <div class="tech-badge">
+                        <i class="fas fa-microchip" aria-hidden="true"></i> Цифровое управление
                     </div>
                 </div>
 
-                <!-- ДОПОЛНИТЕЛЬНАЯ ИНФОРМАЦИЯ ОБ ОБОРУДОВАНИИ -->
-                <div class="equipment-showcase scroll-animate" style="--card-delay: 0.4s;">
-                    <div class="equipment-header">
-                        <h4><i class="fas fa-microchip" aria-hidden="true"></i> Технологическая база</h4>
-                        <span class="equipment-sub">Оборудование Westerlins (Швеция)</span>
+                <div class="prod-detail-card scroll-animate" style="--card-delay: 0.3s;">
+                    <div class="card-header">
+                        <div class="card-icon">
+                            <i class="fas fa-clipboard-check" aria-hidden="true"></i>
+                        </div>
+                        <span class="card-badge">ISO 9001:2015</span>
                     </div>
-                    <div class="equipment-grid">
-                        <div class="equip-item">
-                            <i class="fas fa-arrow-rotate-right" aria-hidden="true"></i>
-                            <div>
-                                <strong>Шнековые мешалки</strong>
-                                <span>Однородное смешивание компонентов</span>
-                            </div>
+                    <h3>Контроль качества</h3>
+                    <p>Гарантом качества наших товаров является высокий уровень технологического контроля на всех этапах. Автоматическая линия с цифровым управлением позволяет точно осуществлять фасовку и маркировку готовых продуктов.</p>
+                    <ul>
+                        <li><i class="fas fa-chart-bar" aria-hidden="true"></i> Постоянный мониторинг</li>
+                        <li><i class="fas fa-weight-scale" aria-hidden="true"></i> Точная фасовка</li>
+                        <li><i class="fas fa-tag" aria-hidden="true"></i> Автоматическая маркировка</li>
+                    </ul>
+                    <div class="cert-badge-small">
+                        <i class="fas fa-certificate" aria-hidden="true"></i> Сертифицировано
+                    </div>
+                </div>
+            </div>
+
+            <div class="equipment-showcase scroll-animate" style="--card-delay: 0.4s;">
+                <div class="equipment-header">
+                    <h4><i class="fas fa-microchip" aria-hidden="true"></i> Технологическая база</h4>
+                    <span class="equipment-sub">Оборудование Westerlins (Швеция)</span>
+                </div>
+                <div class="equipment-grid">
+                    <div class="equip-item">
+                        <i class="fas fa-arrow-rotate-right" aria-hidden="true"></i>
+                        <div>
+                            <strong>Шнековые мешалки</strong>
+                            <span>Однородное смешивание компонентов</span>
                         </div>
-                        <div class="equip-item">
-                            <i class="fas fa-arrows-up-down" aria-hidden="true"></i>
-                            <div>
-                                <strong>Рамочные мешалки</strong>
-                                <span>Интенсивное перемешивание вязких составов</span>
-                            </div>
+                    </div>
+                    <div class="equip-item">
+                        <i class="fas fa-arrows-up-down" aria-hidden="true"></i>
+                        <div>
+                            <strong>Рамочные мешалки</strong>
+                            <span>Интенсивное перемешивание вязких составов</span>
                         </div>
-                        <div class="equip-item">
-                            <i class="fas fa-fire" aria-hidden="true"></i>
-                            <div>
-                                <strong>Фрезы с нагревом</strong>
-                                <span>Контролируемая температура до 200°C</span>
-                            </div>
+                    </div>
+                    <div class="equip-item">
+                        <i class="fas fa-fire" aria-hidden="true"></i>
+                        <div>
+                            <strong>Фрезы с нагревом</strong>
+                            <span>Контролируемая температура до 200°C</span>
                         </div>
-                        <div class="equip-item">
-                            <i class="fas fa-snowflake" aria-hidden="true"></i>
-                            <div>
-                                <strong>Фрезы с охлаждением</strong>
-                                <span>Быстрое охлаждение для стабилизации</span>
-                            </div>
+                    </div>
+                    <div class="equip-item">
+                        <i class="fas fa-snowflake" aria-hidden="true"></i>
+                        <div>
+                            <strong>Фрезы с охлаждением</strong>
+                            <span>Быстрое охлаждение для стабилизации</span>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== PRODUCTION ===== -->
         <section class="production-section" id="production" aria-label="Производство">
             <h2 class="section-title">Производство полного цикла</h2>
             <p class="section-sub">Каждый этап — от сырья до отгрузки — под строгим контролем</p>
@@ -298,7 +283,6 @@
             </div>
         </section>
 
-        <!-- ===== КАРТА ПРОЕЗДА ===== -->
         <section class="map-section scroll-animate" id="map" aria-label="Карта проезда">
             <div class="map-header">
                 <h2 class="section-title">Как нас найти</h2>
@@ -338,7 +322,6 @@
                     </div>
                 </div>
 
-                <!-- Общественный транспорт -->
                 <div class="map-info-card transport-card">
                     <div class="info-icon"><i class="fas fa-bus" aria-hidden="true"></i></div>
                     <div class="info-content">
@@ -366,7 +349,6 @@
                     </div>
                 </div>
 
-                <!-- Метро + режим работы -->
                 <div class="map-info-card">
                     <div class="info-icon"><i class="fas fa-subway" aria-hidden="true"></i></div>
                     <div class="info-content">
@@ -389,9 +371,9 @@
                     </div>
                 </div>
             </div>
+            </div><!-- /.map-wrapper -->
         </section>
 
-        <!-- ===== FOOTER ===== -->
         <footer class="footer" id="contacts" role="contentinfo">
             <div class="footer-grid">
                 <div class="footer-brand">
@@ -403,10 +385,10 @@
                 <div class="footer-col">
                     <h4>Контакты</h4>
                     <a href="tel:+88007770198">
-                    <i class="fas fa-phone" aria-hidden="true" style="margin-right: 8px;"></i> 8 (812) 329-07-15
+                        <i class="fas fa-phone" aria-hidden="true" style="margin-right: 8px;"></i> 8 (812) 329-07-15
                     </a>
                     <a href="mailto:info@sipp.pro">
-                        <i class="fas fa-envelope" aria-hidden="true" style="margin-right: 8px"></i> INFO@SIPP-PROM.RU
+                        <i class="fas fa-envelope" aria-hidden="true" style="margin-right: 8px;"></i> INFO@SIPP-PROM.RU
                     </a>
                     <div class="item"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> Санкт-Петербург г., Коломяжский пр-кт, дом 10, литер Т</div>
                     <div class="item"><i class="fas fa-clock" aria-hidden="true"></i> пн–пт 10:00 – 19:00</div>
@@ -447,7 +429,56 @@
 
     </div>
 
-    <script src="static/func.js"></script>
+<div class="chat-widget">
+    <button class="chat-toggle-btn" id="chatToggleBtn" aria-label="Открыть чат">
+        <i class="fas fa-comment-dots" id="chatIcon"></i>
+        <span class="notification-badge" id="notificationBadge" style="display: none;">1</span>
+    </button>
+
+    <div class="chat-window" id="chatWindow">
+        <!-- Шапка -->
+        <div class="chat-header" id="chatHeader">
+            <div class="chat-header-left">
+                <div class="chat-header-avatar">
+                    <i class="fas fa-headset"></i>
+                </div>
+                <div class="chat-header-info">
+                    <h3>Поддержка SIPP-PROM</h3>
+                    <p>Онлайн</p>
+                </div>
+            </div>
+            <button class="chat-header-close" id="chatCloseBtn" aria-label="Закрыть чат">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="chat-messages" id="chatMessages">
+
+            <div class="typing-indicator" id="typingIndicator">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+
+        <div class="quick-replies">
+            <button class="quick-reply-btn" data-question="Цена на полиуретан">💰 Цена</button>
+            <button class="quick-reply-btn" data-question="Доставка">🚚 Доставка</button>
+            <button class="quick-reply-btn" data-question="Сертификаты">📋 Сертификаты</button>
+            <button class="quick-reply-btn" data-question="Техническая консультация">🔧 Консультация</button>
+        </div>
+
+        <div class="chat-input-area">
+            <textarea id="chatInput" rows="1" placeholder="Напишите сообщение..." aria-label="Введите сообщение"></textarea>
+            <button class="chat-send-btn" id="chatSendBtn" aria-label="Отправить">
+                <i class="fas fa-paper-plane"></i>
+            </button>
+        </div>
+    </div>
+</div>
+
+    <script src="static/js_func/main.js"></script>
+    <script src="static/js_func/chat.js"></script>
 
 </body>
 </html>

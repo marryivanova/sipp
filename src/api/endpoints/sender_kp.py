@@ -30,7 +30,10 @@ async def send_email(request: EmailRequest, background_tasks: BackgroundTasks):
             name=request.name, email=request.email, phone=request.phone_number, info=request.info
         )
         message = MessageSchema(
-            subject=f"Заявка от {request.name}", recipients=[request.email], body=html, subtype=MessageType.html
+            subject=f"Заявка от {request.name}",
+            recipients=[request.email],
+            body=html,
+            subtype=MessageType.html,
         )
         fm = FastMail(conf)
         background_tasks.add_task(send_email_task, fm, message, request)
@@ -39,7 +42,9 @@ async def send_email(request: EmailRequest, background_tasks: BackgroundTasks):
         logger.info("=" * 50)
 
         return ResponseSendemail(
-            status="ok", message="Письмо отправляется", data=dict(to=request.email, subject=f"Заявка от {request.name}")
+            status="ok",
+            message="Письмо отправляется",
+            data=dict(to=request.email, subject=f"Заявка от {request.name}"),
         )
 
     except Exception as e:
